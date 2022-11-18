@@ -12,12 +12,12 @@ public class Main{
         Scanner sc = new Scanner (System.in);
        System.out.print("elija una opcion segun lo siguiente:\n"+
        "Oprime 1 para disparar a un tanque.\n"+
-       "oprime 2 para lanzar una bomba atomica (derriba un tanque aleatoreamente).\n" +
-       "oprime 3 para crear un tanque mutante (duplica la vida del tanque con menor vida).\n"+
-       "oprimir 4 para recibir una frase inspiradora de la abuela.\n"+
-       "oprimir 5 para ver el numero de disparos hechos.\n"+
-       "oprimir 6 para ver la cantidad de sangre derramada."+
-       "oprimir 7 para guardar en archivo txt la cantidad de sangre restante de cada tanque.");
+       "Oprime 2 para lanzar una bomba atomica (derriba un tanque aleatoreamente).\n" +
+       "Oprime 3 para crear un tanque mutante (duplica la vida del tanque con menor vida).\n"+
+       "Oprimir 4 para recibir una frase inspiradora de la abuela.\n"+
+       "Oprimir 5 para ver el numero de disparos hechos.\n"+
+       "Oprimir 6 para ver la cantidad de sangre derramada.\n"+
+       "Oprimir 7 para guardar en archivo txt la cantidad de sangre restante de cada tanque.");
        Tanques.TableroJuego();
        System.out.println(Tanques.imprimirTablero());
        while(true){
