@@ -1,0 +1,16 @@
+class TanquesAliens extends Tanques{
+    private int salud = 20;
+    public TanquesAliens(){
+        
+    }
+    public TanquesAliens(String TipoTanque,int Salud){
+    super(TipoTanque,Salud);
+    }   
+     public void setSalud(int s){
+        this.salud = s;
+    }
+    public int getSalud(){
+        return this.salud;
+    }
+    
+}
