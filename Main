@@ -9,14 +9,14 @@ public class Main{
      public static void  menu(){
 
         Scanner sc = new Scanner (System.in);
-       System.out.print("elija una opcion segun lo siguiente:\n"+
+       System.out.print("Elija una opcion segun lo siguiente:\n"+
        "Oprime 1 para disparar a un tanque.\n"+
-       "oprime 2 para lanzar una bomba atomica (derriba un tanque aleatoreamente).\n" +
-       "oprime 3 para crear un tanque mutante (duplica la vida del tanque con menor vida).\n"+
-       "oprimir 4 para recibir una frase inspiradora de la abuela.\n"+
-       "oprimir 5 para ver el numero de disparos hechos.\n"+
-       "oprimir 6 para ver la cantidad de sangre derramada.\n"+
-       "oprimir 7 para guardar en archivo txt la cantidad de sangre restante de cada tanque.");
+       "Oprime 2 para lanzar una bomba atomica (derriba un tanque aleatoreamente).\n" +
+       "Oprime 3 para crear un tanque mutante (duplica la vida del tanque con menor vida).\n"+
+       "Oprimir 4 para recibir una frase inspiradora de la abuela.\n"+
+       "Oprimir 5 para ver el numero de disparos hechos.\n"+
+       "Oprimir 6 para ver la cantidad de sangre derramada.\n"+
+       "Oprimir 7 para guardar en archivo txt la cantidad de sangre restante de cada tanque.");
        Tanques.TableroJuego();
        System.out.println(Tanques.imprimirTablero());
        while(true){
@@ -49,11 +49,13 @@ public class Main{
                            int random1 = (int) (Math.random()*(2-0))+0;//cuadrar segun el numero de tanques creados
                            int random2 = (int) (Math.random()*(2-0))+0;
                            String TanqueD = Tanques.arr[random1][random2].getTipoTanque();
+                           int disparosTanque = Tanques.arr[random1][random2].getSalud()/5;
                            if( (TanqueD.equals ("BA") || TanqueD.equals ("BN")) && Tanques.arr[random1][random2].getSalud()!=0){
                                Tanques.arr[random1][random2].setSalud(0);
                                System.out.println(Tanques.imprimirTablero());
                                System.out.println(" Bomba atómica a Derribado al tanque " + TanqueD + " en la posicion: [" + random1 +"] ["+random2+"]");
                                contador++;
+                               contadorDisparos += disparosTanque;
                                break;
                            }  
                         }
