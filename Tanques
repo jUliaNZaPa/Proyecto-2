@@ -73,7 +73,7 @@ public class Tanques{
              imputArchivo = new FileWriter(archivo);
              for(int j = 0;j<2;j++){
                  for(int i =0;i<2;i++){
-                     if(Tanques.arr[j][i] != null){
+                     if(Tanques.arr[j][i].getTipoTanque() != " "){
                          imputArchivo.write("el tanque en la posicion "+j+"-"+i+", le queda "+arr[j][i].getSalud()+" de sangre\n");
                      }
                  }
