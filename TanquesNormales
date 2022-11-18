@@ -1,0 +1,15 @@
+class TanquesNormales extends Tanques{
+    private int salud = 10;
+    public TanquesNormales(){
+        
+    }
+    public TanquesNormales(String TipoTanque,int Salud){
+    super(TipoTanque,Salud);
+      }  
+     public void setSalud(int s){
+        this.salud = s;
+    }
+    public int getSalud(){
+        return this.salud;
+    }
+}
