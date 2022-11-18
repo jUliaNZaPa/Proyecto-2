@@ -1,0 +1,78 @@
+import java.util.Scanner;
+import java.io.File;  
+import java.io.FileWriter;
+public class Tanques{
+     public static Tanques [][] arr = new Tanques [2][2];
+     public static int  NumTanques = (int) (Math.random()*(4))+1;
+     public static int Salud;
+     private String TipoTanque;   
+     Tanques(){}
+     public Tanques(String TipoTanque,int Salud){
+        this();
+        this.Salud = Salud;
+        this.TipoTanque = TipoTanque;
+     }
+      
+     public void setSalud(int s){
+        this.Salud = s;
+     }
+    
+     public int getSalud(){
+        return this.Salud;
+     }
+    
+     public void setTipoTanque(String t){
+        this.TipoTanque = t;
+     }
+    
+     public String getTipoTanque(){
+        return this.TipoTanque;
+     }
+      
+      public static Tanques [][] TableroJuego(){
+       int contador = NumTanques;
+       for(int i = 0;i<2; i++){
+           for(int j=0;j<2;j++){
+               if(contador>0){
+                    int tipoTanques = (int)(Math.random()*(2))+1;
+                    if(tipoTanques == 1){
+                      arr[i][j] = new TanquesNormales("BN",10);
+                    }
+                    if (tipoTanques == 2) {
+                      arr[i][j] = new TanquesAliens("BA",20);
+                    }
+                    contador --;
+                }
+                else{
+                    break;
+                }
+           }
+       }
+       return arr;
+     } 
+     public static String imprimirTablero(){
+         String tabla = "-----------------\n"+
+         "| "+arr[0][0].getTipoTanque() +"-"+ arr[0][0].getSalud() +" | "+arr[0][1].getTipoTanque() +"-"+ arr[0][1].getSalud() +" |\n"+
+         "| "+arr[1][0].getTipoTanque() +"-"+ arr[1][0].getSalud() +" | "+arr[1][1].getTipoTanque() +"-"+ arr[1][1].getSalud() +" |\n"+
+         "-----------------";
+           return tabla;
+     }  
+     public static void archivoTXT(){
+         File archivo = new File("Sangre.txt");
+         try{
+             FileWriter imputArchivo = new FileWriter(archivo);
+             imputArchivo = new FileWriter(archivo);
+             for(int j = 0;j<2;j++){
+                 for(int i =0;i<2;i++){
+                     if(Tanques.arr[j][i] != null){
+                         imputArchivo.write("el tanque en la posicion "+j+"-"+i+", le queda "+arr[j][i].getSalud()+" de sangre\n");
+                     }
+                 }
+             }
+             imputArchivo.close();
+         }  
+         catch(Exception e){
+             System.out.println("No se pudo ingresar la informacion");
+         }
+     }
+}
