@@ -78,6 +78,7 @@ public class Tanques{
                      }
                  }
              }
+             System.out.println("El archivo se ha creado exitosamente");
              imputArchivo.close();
          }  
          catch(Exception e){
