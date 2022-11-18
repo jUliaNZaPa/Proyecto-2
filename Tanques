@@ -48,6 +48,15 @@ public class Tanques{
                 }
            }
        }
+       if(arr[0][1]== null ){
+           arr[0][1] = new espacioVacio(" ",00);
+       }
+       if(arr[1][0]== null){
+           arr[1][0] = new espacioVacio(" ",00);
+       }               
+       if(arr [1][1]== null ){
+           arr[1][1] = new espacioVacio(" ",00);
+       }
        return arr;
      } 
      public static String imprimirTablero(){
