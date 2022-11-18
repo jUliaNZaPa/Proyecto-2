@@ -1,0 +1,5 @@
+public class espacioVacio extends Tanques{ 
+ public espacioVacio(String TipoTanque,int Salud){
+    super(TipoTanque,Salud);
+  }
+}
