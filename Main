@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Main{
     public static int contadorDisparos = 0;
     public static int contador=0;
-    public static int sangreTotal = contadorDisparos*5;
    public static void main(String[] args) {
        Main.menu();
    }
@@ -12,12 +11,12 @@ public class Main{
         Scanner sc = new Scanner (System.in);
        System.out.print("elija una opcion segun lo siguiente:\n"+
        "Oprime 1 para disparar a un tanque.\n"+
-       "Oprime 2 para lanzar una bomba atomica (derriba un tanque aleatoreamente).\n" +
-       "Oprime 3 para crear un tanque mutante (duplica la vida del tanque con menor vida).\n"+
-       "Oprimir 4 para recibir una frase inspiradora de la abuela.\n"+
-       "Oprimir 5 para ver el numero de disparos hechos.\n"+
-       "Oprimir 6 para ver la cantidad de sangre derramada.\n"+
-       "Oprimir 7 para guardar en archivo txt la cantidad de sangre restante de cada tanque.");
+       "oprime 2 para lanzar una bomba atomica (derriba un tanque aleatoreamente).\n" +
+       "oprime 3 para crear un tanque mutante (duplica la vida del tanque con menor vida).\n"+
+       "oprimir 4 para recibir una frase inspiradora de la abuela.\n"+
+       "oprimir 5 para ver el numero de disparos hechos.\n"+
+       "oprimir 6 para ver la cantidad de sangre derramada.\n"+
+       "oprimir 7 para guardar en archivo txt la cantidad de sangre restante de cada tanque.");
        Tanques.TableroJuego();
        System.out.println(Tanques.imprimirTablero());
        while(true){
@@ -29,18 +28,22 @@ public class Main{
                 int imput = sc.nextInt();  
                 switch(imput){
                     case 1:
-                        System.out.println("Elja la fila del tanque a atacar:");
+                        System.out.println("Elja la fila (0 o 1) del tanque a atacar:");
                         int fila = sc.nextInt();
-                        System.out.println("Elja la columna del tanque a atacar:");
+                        System.out.println("Elja la columna (0 o 1) del tanque a atacar:");
                         int columna = sc.nextInt();
-                        Tanques.arr[fila][columna].setSalud(Tanques.arr[fila][columna].getSalud()-5);
-                        System.out.println(Tanques.imprimirTablero());
-                        contadorDisparos++;
-                        if(Tanques.arr[fila][columna].getSalud()==0){
-                            contador++;
+                        if(Tanques.arr[fila][columna].getTipoTanque().equals(" ")){
+                            System.out.println("elija otra posicion");
+                        }
+                        else{
+                            Tanques.arr[fila][columna].setSalud(Tanques.arr[fila][columna].getSalud()-5);
+                            System.out.println(Tanques.imprimirTablero());
+                            contadorDisparos++;
+                            if(Tanques.arr[fila][columna].getSalud()==0){
+                                contador++;
+                            }
                         }
                         break;
-                    
                     case 2:
                         while(true){
                            int random1 = (int) (Math.random()*(2-0))+0;//cuadrar segun el numero de tanques creados
@@ -83,10 +86,11 @@ public class Main{
                         break;
                     
                     case 6:
+                        int sangreTotal = contadorDisparos*5;
                         System.out.println("Cantidad de sangre derramada:" + sangreTotal + " litros");    
                         break;
                     case 7:
-                        
+                        Tanques.archivoTXT();
                         break;
                     default:
                         System.out.println("ingrese un numero diferente.");
